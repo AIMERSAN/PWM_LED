@@ -70,6 +70,9 @@
         "name": "Lib",
         "files": [
           {
+            "path": "../../01_Src/App/Source/system_stm32f4xx.c"
+          },
+          {
             "path": "../../02_Lib/StartUp/startup_stm32f40xx.s"
           },
           {
@@ -88,9 +91,6 @@
             "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_crc.c"
           },
           {
-            "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_cryp.c"
-          },
-          {
             "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_cryp_aes.c"
           },
           {
@@ -98,6 +98,9 @@
           },
           {
             "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_cryp_tdes.c"
+          },
+          {
+            "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_cryp.c"
           },
           {
             "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_dac.c"
@@ -124,10 +127,10 @@
             "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_exti.c"
           },
           {
-            "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_flash.c"
+            "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_flash_ramfunc.c"
           },
           {
-            "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_flash_ramfunc.c"
+            "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_flash.c"
           },
           {
             "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_fmpi2c.c"
@@ -139,13 +142,13 @@
             "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_gpio.c"
           },
           {
-            "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_hash.c"
-          },
-          {
             "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_hash_md5.c"
           },
           {
             "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_hash_sha1.c"
+          },
+          {
+            "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_hash.c"
           },
           {
             "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_i2c.c"
@@ -197,9 +200,6 @@
           },
           {
             "path": "../../02_Lib/STM32F4xx_StdPeriph_Lib/Source/stm32f4xx_wwdg.c"
-          },
-          {
-            "path": "../../01_Src/App/Source/system_stm32f4xx.c"
           }
         ],
         "folders": []

@@ -1,26 +1,28 @@
 
 /**
   ******************************************************************************
-  * @file    Drv_Timer.c
-  * @author  YH
-  * @version V1
+  * @file    key.c
+  * @author  yang feng wu
+  * @version V1.0.0
   * @date    2019/10/13
   * @brief   字符串处理函数
   ******************************************************************************/
 
 
+#define _TIME_C_
 
-#include "Drv_Timer.h"
+#include "timer.h"
 
-uint32_t Timer2Cnt=0;
-
-
+u32 Timer2Cnt=0;
 /**
-  * @brief  Tim2 Config
-  * @param  None
-  * @retval None
-  * @brief  定时器2实现输出PWM波形，达到LED呼吸灯效果
-  */
+* @brief  定时器2配置
+* @param  None
+* @param  None
+* @param  None
+* @retval None
+* @example
+**/
+
 void Timer2_Config(void)
 {
     TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
@@ -59,27 +61,13 @@ void Timer2_Config(void)
 }
 
 /**
-  * @brief  Tim3 PWM配置
-  * @param  uint16_t perValue 预装载值
-  * @param  uint16_t pscValue 预分频值
-  * @retval None
-  * @brief  定时器3实现输出PWM波形，达到LED呼吸灯效果
-  */
-void Timer3_PWM_Config(uint16_t perValue, uint16_t pscValue)
-{
-    TIM_TimeBaseInitTypeDef TIM_TimeBaseINitStructure;
-    TIM_OCInitTypeDef TIM_OCInitStructure;
-    
-    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
-    TIM_DeInit(TIM3);
-}
-
-/**
-  * @brief  Tim2 IRQ处理
-  * @param  None
-  * @retval None
-  * @brief  定时器中断处理
-  */
+* @brief  定时器2中断函数
+* @param  None
+* @param  None
+* @param  None
+* @retval None
+* @example
+**/
 void TIM2_IRQHandler(void)
 {
     if(TIM_GetITStatus(TIM2, TIM_IT_Update) == SET)
