@@ -19,7 +19,7 @@
 
 
 void Timer2_Config(void);
-
+void Timer3_PWM_Config(uint16_t perValue, uint16_t pscValue);
 
 #endif
 
