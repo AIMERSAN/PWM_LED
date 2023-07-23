@@ -14,12 +14,11 @@
 
 uint32_t Timer2Cnt=0;
 
-
 /**
   * @brief  Tim2 Config
   * @param  None
   * @retval None
-  * @brief  定时器2实现输出PWM波形，达到LED呼吸灯效果
+  * @brief  定时器2配置，实现LED周期性闪烁
   */
 void Timer2_Config(void)
 {
@@ -63,15 +62,44 @@ void Timer2_Config(void)
   * @param  uint16_t perValue 预装载值
   * @param  uint16_t pscValue 预分频值
   * @retval None
-  * @brief  定时器3实现输出PWM波形，达到LED呼吸灯效果
+  * @brief  定时器3实现输出PWM波形，用逻辑分析仪观察
   */
 void Timer3_PWM_Config(uint16_t perValue, uint16_t pscValue)
 {
     TIM_TimeBaseInitTypeDef TIM_TimeBaseINitStructure;
-    TIM_OCInitTypeDef TIM_OCInitStructure;
+    TIM_OCInitTypeDef       TIM_OCInitStructure;
+    GPIO_InitTypeDef        GPIO_InitStructure;
     
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+
+    // PC6作为TIM3 CH1的PWM输出，对应GPIO配置
+    GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_6;
+    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF;
+    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+    GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+
     TIM_DeInit(TIM3);
+    
+    // TIM3 时基初始化配置
+    TIM_TimeBaseINitStructure.TIM_CounterMode = TIM_CounterMode_Up;
+    TIM_TimeBaseINitStructure.TIM_Period      = perValue;
+    TIM_TimeBaseINitStructure.TIM_Prescale    = pscValue;
+    TIM_TimeBaseINitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+    TIM_TimeBaseInit(TIM3, TIM_TimeBaseINitStructure);  
+
+    //TIM3 CH1 PWM模式初始化配置
+    TIM_OCInitStructure.TIM_OCMode      = TIM_OCMode_PWM1;
+    TIM_OCInitStructure.TIM_OCIdleState = TIM_OutputNState_Enable;
+    TIM_OCInitStructure.TIM_OCPolarity  = TIM_OCPolarity_Low;
+    TIM_OC1Init(TIM3, TIM_OCInitStructure);
+
+    TIM_ARRPreloadConfig(TIM3, ENABLE);
+
+    // 使能TIM3在CCR1上面的预装载器
+    TIM_OC1PreloadConfig(TIM3, TIM_OCPreload_Enable);
+
 }
 
 

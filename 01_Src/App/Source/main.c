@@ -50,26 +50,11 @@
   */
 int main(void)
 {
-//    NVIC_Configuration();
-//    uart_init( 115200 );
-//    delay_init(); 
-//    
-//    /* 初始化CH395，拉高CS引脚 */
-//    CH395_PORT_INIT();
-//    delay_ms(200);
-//    CH395_RST();
-//    delay_ms(200);
-//    
-//    printf( "\r\nCH395 start\r\n" );
+	
     
     /* Infinite loop */
     while (1)
     { 
-//		delay_ms( 1000 );
-//        printf( "CH395Ver : %2x\n", CH395CMDGetVer() );
-//        delay_ms( 1000 );
-//        // printf( "CH395 Staut : %2x\n", CH395CMDCheckExist( 0x57 ) );
-//		// printf( "test\n" );
 
     }
 }

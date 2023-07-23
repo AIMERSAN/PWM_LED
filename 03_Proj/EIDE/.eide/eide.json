@@ -58,6 +58,9 @@
         "name": "Drv",
         "files": [
           {
+            "path": "../../01_Src/Drv/Source/Drv_MCU.c"
+          },
+          {
             "path": "../../01_Src/Drv/Source/Drv_Timer.c"
           },
           {
