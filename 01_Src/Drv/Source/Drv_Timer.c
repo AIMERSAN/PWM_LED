@@ -48,7 +48,6 @@ void Timer2_Config(void)
 
     TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure);
 
-
     TIM_ClearITPendingBit(TIM2, TIM_IT_Update);
     /* Enables the TIM2 counter */
     TIM_Cmd(TIM2, ENABLE);
